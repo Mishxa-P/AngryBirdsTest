@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Sound[] sounds;
-    public static AudioManager Singleton;
+    public static AudioManager Singleton { get; private set; }
 
     private void Awake()
     {

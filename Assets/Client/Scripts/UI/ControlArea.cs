@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ControlArea : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
@@ -41,7 +41,8 @@ public class ControlArea : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
         {
             Vector3 pullPosition = _mainCamera.ScreenToWorldPoint(eventData.position);
             pullPosition.z = _birdsLauncher.transform.position.z;
-            _birdsLauncher.UpdateTrajectoryAndVelocity(pullPosition);
+            _birdsLauncher.UpdateVelocity(pullPosition);
+            _birdsLauncher.UpdateTrajectory(pullPosition);
         }
     }
     public void OnPointerUp(PointerEventData eventData)

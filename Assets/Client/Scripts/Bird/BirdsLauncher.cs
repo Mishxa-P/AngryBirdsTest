@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
@@ -25,7 +25,7 @@ public class BirdsLauncher : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
         StartCoroutine(ActivateLauncherWidhDelay());
     }
-    public void UpdateTrajectoryAndVelocity(Vector3 pullPosition)
+    public void UpdateVelocity(Vector3 pullPosition)
     {
         if (_activeBird == null || _isDisabled)
         {
@@ -50,6 +50,9 @@ public class BirdsLauncher : MonoBehaviour
         }
         _activeBird.transform.position = pullPosition;
         _throwVel = (_launcherStartingPoint - pullPosition) * _config.Power;
+    }
+    public void UpdateTrajectory(Vector3 pullPosition)
+    {
         _leftClamp.DrawCatapultRope(pullPosition);
         _rightClamp.DrawCatapultRope(pullPosition);
 

@@ -1,10 +1,10 @@
-using Cinemachine;
+﻿using Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(CinemachineVirtualCamera))]
 public class CameraManager : MonoBehaviour
 {
-    public static CameraManager Singleton;
+    public static CameraManager Singleton { get; private set; }
 
     private CinemachineVirtualCamera _virtualCamera;
 
